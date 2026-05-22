@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard ADM</title>
+  <style>
+    body{font-family: Arial, Helvetica, sans-serif; background:#0b1220; color:#e6edf3; margin:0;}
+    .wrap{max-width:1000px; margin:40px auto; padding:0 16px;}
+    .card{background:#111b2e; border:1px solid #22314f; border-radius:12px; padding:20px;}
+    input, button{font-size:14px; padding:10px; border-radius:10px; border:1px solid #2a3a5a; background:#0f172a; color:#e6edf3;}
+    button{cursor:pointer;}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
+    .muted{color:#94a3b8;}
+    .topbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px;}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid #22314f; border-radius:999px; color:#cbd5e1; background:#0f172a;}
+    table{width:100%; border-collapse:collapse; margin-top:12px;}
+    th, td{border-bottom:1px solid #22314f; padding:10px; text-align:left;}
+    th{color:#cbd5e1; font-weight:600;}
+    .links a{margin-right:12px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="topbar">
+        <div>
+          <h2 style="margin:0;">Dashboard ADM</h2>
+          <div class="muted" style="margin-top:6px;">Logado como <span class="pill"><%= adminEmail %></span></div>
+        </div>
+        <form method="POST" action="/admin/logout">
+          <button type="submit">Sair</button>
+        </form>
+      </div>
+
+      <div class="links">
+        <a href="/admin/logs">Ver Logs</a>
+        <span class="muted">(exemplo de “banco”)</span>
+      </div>
+
+      <h3 style="margin-top:22px;">Últimos eventos</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Evento</th>
+            <th>Quando</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% logs.forEach(l => { %>
+            <tr>
+              <td><%= l.id %></td>
+              <td><%= l.action %></td>
+              <td><%= l.createdAt.toISOString ? l.createdAt.toISOString().slice(0,19).replace('T',' ') : l.createdAt %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+

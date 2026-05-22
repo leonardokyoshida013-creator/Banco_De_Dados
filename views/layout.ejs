@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title || 'Admin' %></title>
+  <style>
+    body{font-family: Arial, Helvetica, sans-serif; background:#0b1220; color:#e6edf3; margin:0;}
+    .wrap{max-width:1000px; margin:40px auto; padding:0 16px;}
+    .card{background:#111b2e; border:1px solid #22314f; border-radius:12px; padding:20px;}
+    input, button{font-size:14px; padding:10px; border-radius:10px; border:1px solid #2a3a5a; background:#0f172a; color:#e6edf3;}
+    button{cursor:pointer; border-color:#335;}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
+    .field{display:flex; flex-direction:column; gap:8px; flex:1; min-width:200px;}
+    a{color:#8ab4f8;}
+    .muted{color:#94a3b8;}
+    .topbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px;}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid #22314f; border-radius:999px; color:#cbd5e1; background:#0f172a;}
+    table{width:100%; border-collapse:collapse; margin-top:12px;}
+    th, td{border-bottom:1px solid #22314f; padding:10px; text-align:left;}
+    th{color:#cbd5e1; font-weight:600;}
+    .alert{padding:10px 12px; border-radius:10px; margin-bottom:12px; border:1px solid #22314f;}
+    .alert.ok{background:#0b2b1d; border-color:#1f6f43;}
+    .alert.err{background:#2b0b0b; border-color:#7a1f1f;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <%- body %>
+  </div>
+</body>
+</html>
+

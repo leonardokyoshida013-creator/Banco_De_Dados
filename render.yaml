@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: site-admin
+    env: node
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 10000
+

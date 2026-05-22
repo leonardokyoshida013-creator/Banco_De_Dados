@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login ADM</title>
+  <style>
+    body{font-family: Arial, Helvetica, sans-serif; background:#0b1220; color:#e6edf3; margin:0;}
+    .wrap{max-width:520px; margin:80px auto; padding:0 16px;}
+    .card{background:#111b2e; border:1px solid #22314f; border-radius:12px; padding:20px;}
+    input, button{font-size:14px; padding:10px; border-radius:10px; border:1px solid #2a3a5a; background:#0f172a; color:#e6edf3; width:100%;}
+    button{cursor:pointer; margin-top:12px;}
+    .field{display:flex; flex-direction:column; gap:8px; margin-top:12px;}
+    .muted{color:#94a3b8;}
+    .alert{padding:10px 12px; border-radius:10px; margin-bottom:12px; border:1px solid #22314f;}
+    .alert.ok{background:#0b2b1d; border-color:#1f6f43;}
+    .alert.err{background:#2b0b0b; border-color:#7a1f1f;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h2>Login ADM</h2>
+      <p class="muted">Acesso restrito ao administrador.</p>
+
+      <% if (success) { %>
+        <div class="alert ok"><%= success %></div>
+      <% } %>
+      <% if (error) { %>
+        <div class="alert err"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/admin/login">
+        <div class="field">
+          <label>Email</label>
+          <input name="email" type="email" required value="admin@admin.com" />
+        </div>
+        <div class="field">
+          <label>Senha</label>
+          <input name="password" type="password" required value="admin123" />
+        </div>
+
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
